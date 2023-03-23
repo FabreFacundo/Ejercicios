@@ -1,4 +1,4 @@
-package paqueteClase5;
+package pqueteClase7;
 
 public class Producto {
 	private String marca="Sin datos";
@@ -11,11 +11,7 @@ public class Producto {
 	
  	public Producto(String marca,String nombre,double precioUnitario,double peso,String unidadPeso)
 	{
- 		if(stock>2)
- 		{
- 			System.out.println("Alcanzado la cantidad maxima de productos!");
- 			return;
- 		}
+ 		
  		this.marca=marca;
 		this.nombre=nombre;
 		this.precioUnitario=precioUnitario;
@@ -24,6 +20,11 @@ public class Producto {
 		int check=chekearInventario(marca, nombre, precioUnitario, peso, unidadPeso);
  		if(check==-1)
  		{
+ 			if(stock==inventario.length)
+ 	 		{
+ 	 			System.out.println("Alcanzado la cantidad maxima de productos!");
+ 	 			return;
+ 	 		}
  			inventario[stock]=this;
  			stock++;
  		}
@@ -56,8 +57,9 @@ public class Producto {
 		for(int i=0; i<inventario.length;i++)
  		{
  			if(inventario[i]==null)continue;
- 			if(inventario[i].getMarca().equals(marca) && inventario[i].getNombre().equals(nombre) && inventario[i].getPrecioUnitario()==precioUnitario && inventario[i].getPeso()==peso && inventario[i].getUnidadPeso().equals(unidadPeso))
+ 			if(inventario[i].getMarca().equals(marca) && inventario[i].getNombre().equals(nombre) && inventario[i].getPrecioUnitario()==precioUnitario && inventario[i].getPeso()==peso && inventario[i].getUnidadPeso().equals(peso+unidadPeso))
  			{
+ 				
 				encontrado=i;
 				break;
  			}

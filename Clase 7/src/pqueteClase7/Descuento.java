@@ -1,4 +1,4 @@
-package paqueteClase5;
+package pqueteClase7;
 
 public class Descuento {
 	private double porcentajeADescontar;

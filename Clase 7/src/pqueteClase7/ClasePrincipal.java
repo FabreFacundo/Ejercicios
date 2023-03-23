@@ -1,4 +1,4 @@
-package paqueteClase5;
+package pqueteClase7;
 
 
 import java.io.IOException;
@@ -8,20 +8,35 @@ import java.nio.file.Paths;
 
 
 public class ClasePrincipal {
+	
 	static Carrito carro;
 	static String ruta="../TicketCompra1.txt";
 
 	
 	public static void main(String[] args) {
 
-			mostrarPrecio();		
+			DescuentoFijo dF=new DescuentoFijo(50);
+			DescuentoPorcentajeConTope dP=new DescuentoPorcentajeConTope(50);
+			dP.setPorcentajeADescontar(25);
+			
+			mostrarPrecio(null);
+			mostrarPrecio(dF);	
+			mostrarPrecio(dP);	
 	}
 	
-	public static void mostrarPrecio()
+	public static void mostrarPrecio(Descuento descuento)
 	{
 		if(leerTicket(ruta))
 		{
-			System.out.println(carro.precioCompra());
+			if(descuento==null)
+			{
+				System.out.println(carro.precioCompra()); 
+			}
+			else
+			{
+				System.out.println(descuento.aplicarDescuento(carro.precioCompra()));
+			}
+			
 		}
 	}
 	
@@ -37,6 +52,7 @@ public class ClasePrincipal {
 		{	
 			try 
 			{
+				
 				String[] contLinea;
 				int cantItems=Files.readAllLines(ticket).size()-1;
 				Producto pr;

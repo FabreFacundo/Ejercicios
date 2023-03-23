@@ -1,4 +1,4 @@
-package paqueteClase5;
+package pqueteClase7;
 
 public class Carrito {
 
@@ -11,9 +11,6 @@ public class Carrito {
 	public Carrito(int tamaño)
 	{
 		items=new ItemCarrito[tamaño];
-		indice=0;
-		indiceLibre=0;
-		lugarLibre=false;
 	}	
 	public void agregarAlCarrito(ItemCarrito item)
 	{
