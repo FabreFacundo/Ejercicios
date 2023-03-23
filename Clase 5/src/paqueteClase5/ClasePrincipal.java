@@ -16,15 +16,15 @@ public class ClasePrincipal {
 	
 	public static void main(String[] args) {
 
-		hacerCompra();
+			if(leerTicket(ruta))
+			{
+				System.out.println(carro.precioCompra());
+			}
 		
 	}
 	
 
-	static void mostrarPrecioNeto(Carrito carro)
-	{
-		System.out.println(carro.precioCompra());
-	}
+	
  	static public boolean leerTicket(String ruta)
 	{
 		Path ticket=Paths.get(ruta);
@@ -63,26 +63,5 @@ public class ClasePrincipal {
 			return true;
 		}
 	}
- 	static void hacerCompra()
- 	{	
- 		if(!leerTicket(ruta))return;
- 		double precio=0;
- 		System.out.println("Comprador/ra: Buen dia quisiera llevar..");
- 		for(ItemCarrito iC:carro.getItems())
- 		{
- 			System.out.println(iC.getCantidad()+" "+iC.getProducto().getUnidadPeso()+" "+iC.getProducto().getNombreCompleto());
- 		}
- 		precio=carro.precioCompra();
- 		System.out.println("Vendedor/ra: Buen dia, serian: "+precio);
- 		System.out.println("Vendedor/ra: aplicando los precios cuidados de "+pC.getPorcentaje()+"%");
- 		precio=pC.aplicarDescuento(carro);
- 		System.out.println("Vendedor/ra: te quedaria en $"+precio);
- 		System.out.println("Vendedor/ra:tambien podes aprovechar nuestro descuento otoñal del "+dO.getPorcentaje()+"%");
- 		precio=dO.aplicarDescuento(fechaActual, precio);
- 		System.out.println("Vendedor/ra: serian en total en $"+precio);
- 		System.out.println("Comprador/ra: Servite *le da la tarjeta*");
- 		System.out.println("Vendedor/ra: aqui tiene su tarjeta, que tenga buen dia!");
- 		System.out.println("Comprador/ra: Hasta luego!");
- 		
- 	}
+ 	
 }
