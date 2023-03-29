@@ -11,28 +11,37 @@ public class Producto {
 	
  	public Producto(String marca,String nombre,double precioUnitario,double peso,String unidadPeso)
 	{
- 		if(stock>2)
- 		{
- 			System.out.println("Alcanzado la cantidad maxima de productos!");
- 			return;
- 		}
- 		this.marca=marca;
-		this.nombre=nombre;
-		this.precioUnitario=precioUnitario;
-		this.peso=peso;
-		this.unidadPeso=unidadPeso;
-		int check=chekearInventario(marca, nombre, precioUnitario, peso, unidadPeso);
+ 		
+		int check=chekearInventario(marca.toLowerCase(), nombre.toLowerCase(), precioUnitario, peso, unidadPeso.toLowerCase());
  		if(check==-1)
  		{
+ 			if(stock==inventario.length)
+ 	 		{
+ 	 			System.out.println("Alcanzado la cantidad maxima de productos!");
+ 	 			return;
+ 	 		}
+
+ 	 		this.marca=marca;
+ 			this.nombre=nombre;
+ 			this.precioUnitario=precioUnitario;
+ 			this.peso=peso;
+ 			this.unidadPeso=unidadPeso;
  			inventario[stock]=this;
  			stock++;
  		}
  		else
  		{
+
+ 	 		this.marca=marca;
+ 			this.nombre=nombre;
+ 			this.precioUnitario=precioUnitario;
+ 			this.peso=peso;
+ 			this.unidadPeso=unidadPeso;
  			inventario[check]=this;
  		}
  		
 	
+ 	
 	}
 	public String getMarca() {return marca;}
 	public String getNombre() {return nombre;}
@@ -56,8 +65,9 @@ public class Producto {
 		for(int i=0; i<inventario.length;i++)
  		{
  			if(inventario[i]==null)continue;
- 			if(inventario[i].getMarca().equals(marca) && inventario[i].getNombre().equals(nombre) && inventario[i].getPrecioUnitario()==precioUnitario && inventario[i].getPeso()==peso && inventario[i].getUnidadPeso().equals(unidadPeso))
+ 			if(inventario[i].getMarca().toLowerCase().equals(marca) && inventario[i].getNombre().toLowerCase().equals(nombre) && inventario[i].getPrecioUnitario()==precioUnitario && inventario[i].getPeso()==peso && inventario[i].getUnidadPeso().toLowerCase().equals(peso+unidadPeso))
  			{
+ 				
 				encontrado=i;
 				break;
  			}

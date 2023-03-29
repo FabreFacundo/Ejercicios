@@ -3,17 +3,16 @@ package paqueteClase5;
 public class Carrito {
 
 	private ItemCarrito[] items;
+	private int idCarrito;
 	private int indice=0;
 	private int indiceLibre=0;
 	private boolean lugarLibre=false;
 	
 	
-	public Carrito(int tamaño)
+	public Carrito(int tamaño, int id)
 	{
+		idCarrito=id;
 		items=new ItemCarrito[tamaño];
-		indice=0;
-		indiceLibre=0;
-		lugarLibre=false;
 	}	
 	public void agregarAlCarrito(ItemCarrito item)
 	{
@@ -53,5 +52,6 @@ public class Carrito {
 		}
 		return total;
 	}
+	public int getId() {return idCarrito;}
 	public ItemCarrito[] getItems() {return items;}
 }

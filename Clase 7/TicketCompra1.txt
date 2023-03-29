@@ -1,4 +1,0 @@
--Cantidad	-Peso	-U	-Marca	-Producto	-Precio*Unidad
-1	200	g	Porcomagro	Paleta Especial	250
-2	250	g	Cremigal	Queso Sardo	189.90
-3	2	l	PepsiCo	7Up	300.25

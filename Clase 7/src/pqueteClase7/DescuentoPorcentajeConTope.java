@@ -7,13 +7,20 @@ public class DescuentoPorcentajeConTope extends Descuento{
 	public DescuentoPorcentajeConTope(double topeMaximo)
 	{
 		this.topeMaximo=topeMaximo;
-	
 	}
 	
 	@Override
-	public void setPorcentajeADescontar(double nuevoPorcentaje) {
-		if(nuevoPorcentaje>topeMaximo)super.setPorcentajeADescontar(topeMaximo);
-		else super.setPorcentajeADescontar(nuevoPorcentaje);
+	public void setValorADescontar(double nuevoValor) {
+		if(nuevoValor>topeMaximo) 
+		{
+			setTipoDescuento("Descuento porcentual de %"+topeMaximo);
+			super.setValorADescontar(topeMaximo);
+		}
+		else 
+		{
+			setTipoDescuento("Descuento porcentual de %"+nuevoValor);
+			super.setValorADescontar(nuevoValor);
+		}
 	}
 	
 }
