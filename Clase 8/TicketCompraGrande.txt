@@ -1,0 +1,9 @@
+-Cantidad     -Peso	-Unidad   -Marca	-Producto	-Precio*Unidad
+1		200	g	Porcomagro	Paleta Especial	250.90
+2		250	g	Cremigal	Queso Sardo	189.90
+2		1	kg	Almamora	Vino Cavernet	900.20
+3		500	g	Don Satur	Biscochos	350.50
+2		250	g	   Swift	Picadillo	500.25
+1		0	n/a	 Colgate	Pasta Dental	850.36
+7		0	n/a	FelfFort	Bombones	50.25
+6		0	n/a	Alfajores	Entre Rios	500
