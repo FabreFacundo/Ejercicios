@@ -1,0 +1,18 @@
+CREATE DATABASE qatar2022;
+CREATE TABLE qatar2022.departamentos
+( 
+idDepartamento INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+NombreDepartamento VARCHAR(45) NOT NULL,
+Presupuesto DOUBLE NOT NULL
+);
+
+CREATE TABLE qatar2022.empleados
+( 
+idEmpleado INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+Nombre VARCHAR(45) NOT NULL,
+Apellido VARCHAR(45) NOT NULL,
+Nacionalidad VARCHAR(45) NOT NULL,
+idDepartamento INT,
+FOREIGN KEY (idDepartamento) REFERENCES qatar2022.departamentos(idDepartamento) 
+ON UPDATE CASCADE ON DELETE SET NULL
+);
